@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Презентация: Публикация сайта</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.slide {
+    display: none;
+    padding: 50px;
+    height: 100vh;
+    box-sizing: border-box;
+    background: white;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.slide.active {
+    display: block;
+}
+
+h1 { color: #333; }
+
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+.controls {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+code {
+    background: #eee;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Слайды -->
+
+<div class="slide active">
+    <h1>Публикация сайта</h1>
+    <p>Презентация: GitHub Pages и хостинг</p>
+</div>
+
+<div class="slide">
+    <h1>Что такое GitHub Pages?</h1>
+    <p>GitHub Pages — сервис для размещения статических сайтов прямо из репозитория GitHub.</p>
+    <p>URL формата: <code>https://username.github.io/repo-name/</code></p>
+</div>
+
+<div class="slide">
+    <h1>Пошаговое создание сайта</h1>
+    <ol style="text-align:left; display:inline-block;">
+        <li>Создать репозиторий на GitHub</li>
+        <li>Добавить файлы сайта (index.html, style.css)</li>
+        <li>Перейти в Settings → Pages</li>
+        <li>Выбрать ветку main/master</li>
+        <li>Открыть ссылку сайта</li>
+    </ol>
+</div>
+
+<div class="slide">
+    <h1>Пример HTML-кода</h1>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Мой сайт&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Привет, мир!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+</div>
+
+<div class="slide">
+    <h1>Альтернативные хостинги</h1>
+    <p>Помимо GitHub Pages можно использовать:</p>
+    <ul style="text-align:left; display:inline-block;">
+        <li>Netlify</li>
+        <li>Vercel</li>
+        <li>Firebase Hosting</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h1>Готово!</h1>
+    <p>Теперь ваш сайт доступен онлайн!</p>
+    <p>Ссылка: <code>https://username.github.io/repo-name/</code></p>
+</div>
+
+<!-- Кнопки управления -->
+
+<div class="controls">
+    <button onclick="prevSlide()">Назад</button>
+    <button onclick="nextSlide()">Вперёд</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let current = 0;
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+}
+
+function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}
+
+function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+}
+</script>
+
+</body>
+</html>
